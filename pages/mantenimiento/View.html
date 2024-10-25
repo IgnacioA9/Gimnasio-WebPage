@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gimnasio - Información</title>
+    <link rel="stylesheet" href="../../css/Style.css">
+    <link rel="stylesheet" href="M_Style.css">
+    <script src="../../js/menu.js" defer></script>
+    <script src="M_Controller.js" defer></script>
+    <script src="T_Controller.js" defer></script>
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <header>
+        <nav>
+            <ul>
+            </ul>
+        </nav>
+    </header>
+    <!-- Contenedor de pestañas y tablas -->
+    <main>
+        <section class="info-section">
+            <!--Tab-container begin-->
+            <div class="tab-container">
+                <button class="tab-button active" data-target="clientes-tab">Clientes</button>
+                <button class="tab-button" data-target="cursos-tab">Cursos</button>
+                <button class="tab-button" data-target="maquinas-tab">Máquinas</button>
+                <button class="tab-button" data-target="rutinas-tab">Rutinas</button>
+                <button class="tab-button" data-target="instructores-tab">Instructores</button>
+            </div>
+            <!--Tab-container end-->
+            <!--Clientes-tab begin-->
+            <div class="tab-content" id="clientes-tab">
+                <section class="sub-info-section"> 
+                    <!-- Formulario de búsqueda -->
+                    <div class="search-container">
+                        <label for="search">Buscar cliente:</label>
+                        <input type="text" id="searchCliente" placeholder="Cédula o Nombre">
+                        <!-- Botón para abrir el pop-up -->
+                        <button id="addClientBtn">Insertar nuevo cliente</button>
+                    </div>
+                    <!-- Popup para agregar cliente -->
+                    <div id="cliente-popup" class="popup">
+                        <div class="popup-content">
+                            <span class="close" id="closeCliente">&times;</span>
+                            <h2>Agregar Nuevo Cliente</h2>
+                            <form id="cliente-form">
+                                <input type="text" id="clienteCedula" name="cedula" placeholder="Cedula" required>
+                                <input type="text" id="clienteNombre" name="nombre" placeholder="Nombre" required>
+                                <input type="text" id="clientePrimerApellido" name="primer_apellido" placeholder="Primer apellido" required>
+                                <input type="text" id="clienteSegundoApellido" name="segundo_apellido" placeholder="Segundo apellido" required>
+                                <input type="text" id="clienteDirección" name="direccion" placeholder="Direccion" required>
+                                <input type="email" id="clienteEmail" name="email" placeholder="Emali" required>
+                                <input type="date" id="clienteInscripcion" name="inscripcion" placeholder="Fecha de inscripción" required>
+                                <button type="submit" id="createCliente">Agregar Cliente</button>
+                                <button type="submit" id="updateCliente" style="display:none">Actualizar Cliente</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Tabla de clientes -->
+                    <div class="table-container">
+                        <table id="clientes-table">
+                            <thead>
+                                <tr>
+                                    <th>Cédula</th>
+                                    <th>Nombre</th>
+                                    <th>Primer apellido</th>
+                                    <th>Segundo apellido</th>
+                                    <th>Direccion</th>
+                                    <th>Email</th>
+                                    <th>Inscripcion</th>
+                                    <th>Actualizar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Las filas se llenarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Paginación -->
+                    <div class="pagination">
+                        <button id="Cl-prev-btn">Anterior</button>
+                        <span id="Cl-page-info"></span>
+                        <button id="Cl-next-btn">Siguiente</button>
+                    </div>
+                </section>
+            </div>
+            <!--Clientes-tab end-->
+            <!--Cursos-tab begin-->
+            <div class="tab-content" id="cursos-tab" style="display: none;">
+                <section class="sub-info-section">
+                    <!-- Formulario de búsqueda -->
+                    <div class="search-container">
+                        <label for="search">Buscar curso:</label>
+                        <input type="text" id="searchCursos" placeholder="ID o Nombre del curso">
+                        <!-- Botón para abrir el pop-up -->
+                        <button id="addCursoBtn">Insertar nuevo curso</button>
+                    </div>
+                    <!-- Popup para agregar curso -->
+                    <div id="curso-popup" class="popup">
+                        <div class="popup-content">
+                            <span class="close" id="closeCurso">&times;</span>
+                            <h2>Agregar Nuevo Curso</h2>
+                            <form id="curso-form">
+                                <input type="text" id="cursoId" name="id" placeholder="ID" required>
+                                <input type="text" id="cursoNombre" name="nombre" placeholder="Nombre" required>
+                                <input type="text" id="cursoHorario" name="horario" placeholder="Horario" required>
+                                <input type="text" id="cursoDisponibilidad" name="disponibilidad" placeholder="Disponibilidad" required>
+                                <button type="submit" id="createCurso">Agregar Curso</button>
+                                <button type="submit" id="updateCurso" style="display:none">Actualizar Curso</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Tabla de cursos -->
+                    <div class="table-container">
+                        <table id="cursos-table">
+                            <thead>
+                                <tr>
+                                    <th>ID Curso</th>
+                                    <th>Nombre</th>
+                                    <th>Horario</th>
+                                    <th>Disponibilidad</th>
+                                    <th>Actualizar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Las filas se llenarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Paginación -->
+                    <div class="pagination">
+                        <button id="Cu-prev-btn">Anterior</button>
+                        <span id="Cu-page-info"></span>
+                        <button id="Cu-next-btn">Siguiente</button>
+                    </div>
+                </section>
+            </div>
+            <!--Cursos-tab end-->
+            <!--Maquinas-tab begin-->
+            <div class="tab-content" id="maquinas-tab" style="display: none;">
+                <section class="sub-info-section">
+                    <!-- Formulario de búsqueda -->
+                    <div class="search-container">
+                        <label for="search">Buscar máquina:</label>
+                        <input type="text" id="searchMaquinas" placeholder="ID de la máquina">
+                        <button id="addMaquinaBtn">Insertar nueva maquina</button>
+                    </div>
+                    <!-- Popup para agregar maquina -->
+                    <div id="maquina-popup" class="popup">
+                        <div class="popup-content">
+                            <span class="close" id="closeMaquina">&times;</span>
+                            <h2>Agregar Nueva Maquina</h2>
+                            <form id="maquina-form">
+                                <input type="text" id="maquinaId" name="id" placeholder="ID" required>
+                                <input type="text" id="maquinaDescripcion" name="descripcion" placeholder="Descripcion" required>
+                                <input type="text" id="maquinaEstado" name="estado" placeholder="Estado" required>
+                                <button type="submit" id="createMaquina">Agregar Maquina</button>
+                                <button type="submit" id="updateMaquina" style="display:none">Actualizar Maquina</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Tabla de cursos -->
+                    <div class="table-container">
+                        <table id="maquinas-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Descripcion</th>
+                                    <th>Estado</th>
+                                    <th>Actualizar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Las filas se llenarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Paginación -->
+                    <div class="pagination">
+                        <button id="Ma-prev-btn">Anterior</button>
+                        <span id="Ma-page-info"></span>
+                        <button id="Ma-next-btn">Siguiente</button>
+                    </div>
+                </section>
+            </div>
+            <!--Maquinas-tab end-->
+            <!--Rutinas-tab begin-->
+            <div class="tab-content" id="rutinas-tab" style="display: none;">
+                <section class="sub-info-section">
+                    <!-- Formulario de búsqueda -->
+                    <div class="search-container">
+                        <label for="search">Buscar rutinas:</label>
+                        <input type="text" id="searchRutina" placeholder="ID o Nombre del curso">
+                        <button id="addRutinaBtn">Insertar nueva rutina</button>
+                    </div>
+                    <!-- Popup para agregar rutina -->
+                    <div id="rutina-popup" class="popup">
+                        <div class="popup-content">
+                            <span class="close" id="closeRutina">&times;</span>
+                            <h2>Agregar Nueva Rutina</h2>
+                            <form id="register-form">
+                                <input type="text" id="rutinaId" name="id" placeholder="ID Rutina" required>
+                                <input type="text" id="rutinaClienteId" name="id_cliente" placeholder="ID Clietne" required>
+                                <input type="text" id="rutinaInstructorId" name="id_instructor" placeholder="ID instructor" required>
+                                <input type="text" id="rutinaMaquina" name="rutina_maquina" placeholder="Maquina" required>
+                                <input type="date" id="rutinaFecha" name="rutina_fecha" placeholder="Fecha" required>
+                                <input type="time" id="rutinaHora" name="rutina_time" placeholder="Hora" required>
+                                <button type="submit" id="createRutina">Agregar Rutina</button>
+                                <button type="submit" id="updateRutina" style="display:none">Actualizar Rutina</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Tabla de cursos -->
+                    <div class="table-container">
+                        <table id="rutinas-table">
+                            <thead>
+                                <tr>
+                                    <th>ID Rutina</th>
+                                    <th>ID Cliente</th>
+                                    <th>ID Intructor</th>
+                                    <th>Maquina</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Actualizar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Las filas se llenarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Paginación -->
+                    <div class="pagination">
+                        <button id="R-prev-btn">Anterior</button>
+                        <span id="R-page-info"></span>
+                        <button id="R-next-btn">Siguiente</button>
+                    </div>
+                </section>
+            </div>
+            <!--Rutinas-tab end-->
+            <!--Instructores-tab begin-->
+            <div class="tab-content" id="instructores-tab" style="display: none;">  
+                <section class="sub-info-section">
+                    <!-- Formulario de búsqueda -->
+                    <div class="search-container">
+                        <label for="search">Buscar Instructores:</label>
+                        <input type="text" id="searchInstructores" placeholder="ID o Nombre del instructor">
+                        <button id="addInstructorBtn">Insertar nuevo instructor</button>
+                    </div>
+                    <!-- Popup para agregar rutina -->
+                    <div id="instructor-popup" class="popup">
+                        <div class="popup-content">
+                            <span class="close" id="closeInstructor">&times;</span>
+                            <h2>Agregar Nuevo Instructor</h2>
+                            <form id="register-form">
+                                <input type="text" id="instructorId" name="id" placeholder="ID" required>
+                                <input type="text" id="instructorNombre" name="nombre" placeholder="Nombre" required>
+                                <input type="text" id="instructorEmail" name="email" placeholder="Email" required>
+                                <input type="text" id="instructorTelefono" name="telefono" placeholder="Telefono" required>
+                                <input type="date" id="instructorFechaContratacion" name="fecha_contratacion" placeholder="Fecha de contratación" required>
+                                <button type="submit" id="createInstructor">Agregar Instructor</button>
+                                <button type="submit" id="updateInstructor" style="display:none">Actualizar Instructor</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Tabla de cursos -->
+                    <div class="table-container">
+                        <table id="instructor-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Telefono</th>
+                                    <th>Fecha de contratación</th>
+                                    <th>Actualizar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Las filas se llenarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Paginación -->
+                    <div class="pagination">
+                        <button id="Ins-prev-btn">Anterior</button>
+                        <span id="Ins-page-info"></span>
+                        <button id="Ins-next-btn">Siguiente</button>
+                    </div>
+                </section>
+            </div>
+            <!--Instructores-tab end-->
+        </section>
+    </main>
+</body>
+
+</html>

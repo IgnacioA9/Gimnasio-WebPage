@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructores - Visualizar Cursos</title>
+    <link rel="stylesheet" href="../../css/Style.css">
+    <link rel="stylesheet" href="V_Style.css">
+    <script src="../../js/menu.js" defer></script> 
+    <script src="V_Controller.js" defer></script>
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <header>
+        <nav>
+            <ul>
+            </ul>
+        </nav>
+    </header>
+    <!-- Contenedor de pestañas y tablas -->
+    <main>
+        <section class="info-section">
+            <div class="tab-container">
+                <button class="tab-button active" data-target="cursos-tab">Cursos</button>
+                <button class="tab-button" data-target="maquinas-tab">Máquinas</button>
+                <button class="tab-button" data-target="instructores-tab">Instructores</button>
+            </div>
+            <!-- Tablas para cursos, máquinas e instructores -->
+            <!--Cursos-tab begin-->
+            <div class="tab-content" id="cursos-tab">
+                <section class="sub-info-section">
+                    <h1>Cursos</h1>
+                    <!-- Formulario de búsqueda -->
+                    <div class="search-container">
+                        <label for="search">Buscar curso:</label>
+                        <input type="text" id="searchCursos" placeholder="ID o Nombre del curso">
+                    </div>
+                    <!-- Tabla de cursos -->
+                    <div class="table-container">
+                        <table id="cursos-table">
+                            <thead>
+                                <tr>
+                                    <th>ID Curso</th>
+                                    <th>Nombre</th>
+                                    <th>Horario</th>
+                                    <th>Disponibilidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Las filas se llenarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Paginación -->
+                    <div class="pagination">
+                        <button id="Cu-prev-btn">Anterior</button>
+                        <span id="Cu-page-info"></span>
+                        <button id="Cu-next-btn">Siguiente</button>
+                    </div>
+                </section>
+            </div>
+            <!--Cursos-tab end-->
+            <!--Maquinas-tab begin-->
+            <div class="tab-content" id="maquinas-tab" style="display: none;">
+                <section class="sub-info-section">
+                    <h1>Máquinas</h1>
+                    <!-- Formulario de búsqueda -->
+                    <div class="search-container">
+                        <label for="search">Buscar máquina:</label>
+                        <input type="text" id="searchMaquinas" placeholder="ID de la máquina">
+                    </div>
+                    <!-- Tabla de cursos -->
+                    <div class="table-container">
+                        <table id="maquinas-table">
+                            <thead>
+                                <tr>
+                                    <th>ID Máquina</th>
+                                    <th>Descripcion</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Las filas se llenarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Paginación -->
+                    <div class="pagination">
+                        <button id="Ma-prev-btn">Anterior</button>
+                        <span id="Ma-page-info"></span>
+                        <button id="Ma-next-btn">Siguiente</button>
+                    </div>
+                </section>
+            </div>
+            <!--Maquinas-tab end-->
+            <!--Instructores-tab begin-->
+            <div class="tab-content" id="instructores-tab" style="display: none;">
+                <section class="sub-info-section">
+                    <h1>Instructores</h1>
+                    <!-- Formulario de búsqueda -->
+                    <div class="search-container">
+                        <label for="search">Buscar Instructores:</label>
+                        <input type="text" id="searchInstructores" placeholder="ID o Nombre del instructor">
+                    </div>
+                    <!-- Tabla de cursos -->
+                    <div class="table-container">
+                        <table id="instructor-table">
+                            <thead>
+                                <tr>
+                                    <th>Cedula</th>
+                                    <th>Nombre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Las filas se llenarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Paginación -->
+                    <div class="pagination">
+                        <button id="Ins-prev-btn">Anterior</button>
+                        <span id="Ins-page-info"></span>
+                        <button id="Ins-next-btn">Siguiente</button>
+                    </div>
+                </section>
+            </div>
+            <!--Instructores-tab end-->
+        </section>
+    </main>    
+</body>
+</html>

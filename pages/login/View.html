@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gimnasio - Inicio</title>
+    <link rel="stylesheet" href="../../css/Style.css">
+    <link rel="stylesheet" href="Login_Style.css">
+    <script src="../../js/menu.js" defer></script> 
+    <script src="Login_Controller.js" defer></script>
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <header>
+        <nav>
+            <ul>
+            </ul>
+        </nav>
+    </header>
+    <!-- Sección principal -->
+    <main>
+        <section id="info-gimnasio">
+            <h1>Bienvenido al Gimnasio XYZ</h1>
+            <p>Dirección: Calle Principal 123, Ciudad</p>
+            <p>Horario: Lunes a Viernes de 6:00 AM a 9:00 PM</p>
+            <p>Sábado de 8:00 AM a 6:00 PM</p>
+        </section>
+
+        <section id="contactos">
+            <h2>Contactos</h2>
+            <p>Teléfono: +123 456 7890</p>
+            <p>Email: contacto@gimnasioxyz.com</p>
+        </section>
+    </main>
+    <!-- Popup para el login -->
+    <div id="login-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="text" id="username" name="username" placeholder="Cedula" required>
+                <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                <button type="submit" id="login-send">Ingresar</button>
+            </form>
+        </div>
+    </div>
+    <!-- Popup para el register -->
+    <div id="register-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" id="closeRegister">&times;</span>
+            <h2>Registrarse</h2>
+            <form id="register-form">
+                <input type="text" id="usernameR" name="username" placeholder="Cedula" required>
+                <input type="password" id="passwordR" name="password" placeholder="Contraseña" required>
+                <button type="submit" id="register-send">Registrarse</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
